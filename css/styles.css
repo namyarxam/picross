@@ -94,6 +94,7 @@ body {
 #startbutton:hover {
   background-color: black;
 
+  /*rainbow hover below effect taken from http://codepen.io/beben-koben/pen/gfuvc*/
   -webkit-animation:rainbow 1s infinite;
   -ms-animation:rainbow 1s infinite;
   -o-animation:rainbow 1s infinite;
@@ -150,4 +151,31 @@ body {
   80% {color: #0000ff;}
   90% {color: #8000ff;}
   100% {color: #ff0080;}
+}
+
+.select-title {
+  padding-top: 50px;
+  width: 700px;
+  margin: auto;
+  text-align: center:
+}
+
+.select-title h1 {
+  font-family: 'silkscreenbold';
+  font-size: 55px;
+  text-align: center;
+}
+
+.choices {
+  padding-top: 20px;
+  font-family: impact;
+  font-size: 35px;
+  margin:auto;
+  text-align: center;
+}
+
+.choices span {
+  padding-left: 35px;
+  padding-right: 35px;
+  text-align: center;
 }

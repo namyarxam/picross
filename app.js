@@ -34,13 +34,22 @@ function axis(arr) {
     }
   }
 
+  if (label.length === 0) {
+    return [0];
+  }
+
   label = label.filter(Number);
   return label;
 }
 
 $(document).ready(function() {
 
+  var $container = $('.container');
+
   var $startButton = $('#startbutton');
+  $startButton.on('click', animateStart);
+  var $buttonDiv = $('#buttondiv');
+
   var $title = $('.title');
   var tP = $('#p');
   var tI = $('#i');
@@ -50,7 +59,8 @@ $(document).ready(function() {
   var tS = $('#s');
   var tSS = $('#s2');
 
-  $startButton.on('click', function(event) {
+  function animateStart() {
+    //title color change
     tP.addClass('red');
     setTimeout(function() {
       tI.addClass('orange');
@@ -71,12 +81,25 @@ $(document).ready(function() {
       tSS.addClass('violet');
     }, 1500);
 
+    //remove title and button
     setTimeout(function() {
       $title.remove();
     }, 1750);
     setTimeout(function() {
-      $startButton.remove();
+      $buttonDiv.remove();
     }, 1750);
-  })
+
+    //add new stuff
+    setTimeout(function() {
+      $container.append('<div class="select-title"></div>');
+    }, 1750);
+
+    setTimeout(function() {
+      console.log($('.select-title'));
+      $('.select-title').append('<h1>Pick a Game Mode</h1>');
+    }, 1750);
+  }
+
+
 
 });
