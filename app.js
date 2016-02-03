@@ -1,3 +1,5 @@
+console.log('JavaScript loaded');
+
 //creates a random board array
 function randomBoard() {
   var boardNumber = Math.round(Math.random()*33554431); //max binary decimal for 25 chars
@@ -32,6 +34,49 @@ function axis(arr) {
     }
   }
 
-  label=label.filter(Number);
+  label = label.filter(Number);
   return label;
 }
+
+$(document).ready(function() {
+
+  var $startButton = $('#startbutton');
+  var $title = $('.title');
+  var tP = $('#p');
+  var tI = $('#i');
+  var tC = $('#c');
+  var tR = $('#r');
+  var tO = $('#o');
+  var tS = $('#s');
+  var tSS = $('#s2');
+
+  $startButton.on('click', function(event) {
+    tP.addClass('red');
+    setTimeout(function() {
+      tI.addClass('orange');
+    }, 250);
+    setTimeout(function() {
+      tC.addClass('yellow');
+    }, 500);
+    setTimeout(function() {
+      tR.addClass('green');
+    }, 750);
+    setTimeout(function() {
+      tO.addClass('blue');
+    }, 1000);
+    setTimeout(function() {
+      tS.addClass('indigo');
+    }, 1250);
+    setTimeout(function() {
+      tSS.addClass('violet');
+    }, 1500);
+
+    setTimeout(function() {
+      $title.remove();
+    }, 1750);
+    setTimeout(function() {
+      $startButton.remove();
+    }, 1750);
+  })
+
+});

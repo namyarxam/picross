@@ -1,0 +1,153 @@
+@font-face {
+    font-family: 'silkscreenbold';
+    src: url('slkscrb-webfont.eot');
+    src: url('slkscrb-webfont.eot?#iefix') format('embedded-opentype'),
+         url('slkscrb-webfont.woff') format('woff'),
+         url('slkscrb-webfont.ttf') format('truetype'),
+         url('slkscrb-webfont.svg#silkscreenbold') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+body {
+  background-image: url('http://www.wallpapersbyte.com/wp-content/uploads/2015/07/Black-And-Gray-Surface-Texture-Pixels-Points-Wave-WallpapersByte-com-1366x768.jpg');
+}
+
+.red {
+  color: red;
+}
+
+.orange {
+  color: orange;
+}
+
+.yellow {
+  color: yellow;
+}
+
+.green {
+  color: green;
+}
+
+.blue {
+  color: blue;
+}
+
+.indigo {
+  color: indigo;
+}
+
+.violet {
+  color: violet;
+}
+
+.container {
+  margin: auto;
+  position: absolute;
+  top: 0; left: 0; bottom: 0; right: 0;
+
+  width: 750px;
+  height: 500px;
+
+  border: 10px solid black;
+  background-color: grey;
+}
+
+.title {
+  margin: auto;
+  padding-top: 175px;
+
+  font-size: 100px;
+  text-align: center;
+  font-family: 'silkscreenbold';
+
+}
+
+#buttondiv {
+  padding-top: 15px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+#startbutton {
+  font-family: impact;
+  border: 3px solid black;
+  padding: 5px 15px 5px 15px;
+  font-size: 25px;
+  letter-spacing: 2px;
+  box-shadow: -2px 3px 5px 0 rgba(0,0,0,.75)
+}
+
+#startbutton:focus {
+  outline: 0;
+}
+
+#startbutton:active{
+    -webkit-box-shadow: 0px 2px 0px black;
+    -moz-box-shadow: 0px 2px 0px black;
+    box-shadow: 0px 2px 0px black;
+    position:relative;
+    top:7px;
+}
+
+#startbutton:hover {
+  background-color: black;
+
+  -webkit-animation:rainbow 1s infinite;
+  -ms-animation:rainbow 1s infinite;
+  -o-animation:rainbow 1s infinite;
+  animation:rainbow 1s infinite;
+  }
+  @-webkit-keyframes rainbow {
+  0% {color: #ff0000;}
+  10% {color: #ff8000;}
+  20% {color: #ffff00;}
+  30% {color: #80ff00;}
+  40% {color: #00ff00;}
+  50% {color: #00ff80;}
+  60% {color: #00ffff;}
+  70% {color: #0080ff;}
+  80% {color: #0000ff;}
+  90% {color: #8000ff;}
+  100% {color: #ff0080;}
+  }
+  @-ms-keyframes rainbow {
+  0% {color: #ff0000;}
+  10% {color: #ff8000;}
+  20% {color: #ffff00;}
+  30% {color: #80ff00;}
+  40% {color: #00ff00;}
+  50% {color: #00ff80;}
+  60% {color: #00ffff;}
+  70% {color: #0080ff;}
+  80% {color: #0000ff;}
+  90% {color: #8000ff;}
+  100% {color: #ff0080;}
+  }
+  @-o-keyframes rainbow {
+  0% {color: #ff0000;}
+  10% {color: #ff8000;}
+  20% {color: #ffff00;}
+  30% {color: #80ff00;}
+  40% {color: #00ff00;}
+  50% {color: #00ff80;}
+  60% {color: #00ffff;}
+  70% {color: #0080ff;}
+  80% {color: #0000ff;}
+  90% {color: #8000ff;}
+  100% {color: #ff0080;}
+  }
+  @keyframes rainbow {
+  0% {color: #ff0000;}
+  10% {color: #ff8000;}
+  20% {color: #ffff00;}
+  30% {color: #80ff00;}
+  40% {color: #00ff00;}
+  50% {color: #00ff80;}
+  60% {color: #00ffff;}
+  70% {color: #0080ff;}
+  80% {color: #0000ff;}
+  90% {color: #8000ff;}
+  100% {color: #ff0080;}
+}
