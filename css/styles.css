@@ -11,6 +11,7 @@
 }
 
 body {
+  cursor:default;
   background-image: url('http://www.wallpapersbyte.com/wp-content/uploads/2015/07/Black-And-Gray-Surface-Texture-Pixels-Points-Wave-WallpapersByte-com-1366x768.jpg');
 }
 
@@ -154,28 +155,98 @@ body {
 }
 
 .select-title {
-  padding-top: 50px;
+  margin-bottom: 5px;
   width: 700px;
   margin: auto;
-  text-align: center:
+  text-align: center;
 }
 
 .select-title h1 {
   font-family: 'silkscreenbold';
-  font-size: 55px;
+  font-size: 65px;
   text-align: center;
 }
 
 .choices {
-  padding-top: 20px;
-  font-family: impact;
+  font-family: arial black;
   font-size: 35px;
   margin:auto;
   text-align: center;
 }
 
 .choices span {
-  padding-left: 35px;
-  padding-right: 35px;
+  position:relative;
   text-align: center;
+  bottom: 15px;
+}
+
+#story {
+  right: 77px;
+}
+
+#random {
+  right: 4px;
+}
+
+#build {
+  left: 75px;
+}
+
+
+#circles {
+  padding-left: 40px;
+}
+
+.circle {
+  border-radius: 50%;
+  width: 200px;
+  height: 200px;
+  background: lightgrey;
+  margin: 10px;
+  float: left;
+
+  border: 2px solid black;
+  cursor: pointer;
+}
+
+.circle:active {
+  transform: scale(.95);
+}
+
+.book {
+  display: block;
+  margin: auto;
+  height: 75px;
+  width: 75px;
+  position: relative;
+  top: 66px;
+}
+
+
+.qm {
+  text-align: center;
+  line-height: 200px;
+  font-size: 100px;
+  font-family: arial black;
+}
+
+.hammer {
+  display: block;
+  margin: auto;
+  height: 75px;
+  width: 75px;
+  position: relative;
+  top: 66px;
+}
+
+.bk:hover {
+  background-color: yellow;
+}
+
+.qm:hover {
+  background-color: cyan;
+}
+
+.hm:hover {
+  background-color: lime;
 }
