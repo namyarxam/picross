@@ -8,6 +8,7 @@ var board5 = [0, 0, 0, 1, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 1, 0, 1, 1, 
 
 var gameNumber = 1;
 var lives = 3;
+var found = 0;
 
 //creates a random board array
 function randomBoard() {
@@ -305,11 +306,13 @@ $(document).ready(function() {
 
     if($(this).attr('val') === 'v1') {
       $(this).css('background-color', 'lightgrey');
+      found++;
     } else {
       $(this).css('background-color', 'grey');
       lives--;
       $hearts.eq(i).remove();
     }
+    $(this).off('click');
     checkWin();
   }
 
@@ -317,10 +320,64 @@ $(document).ready(function() {
     var $hearts = $('.heart');
     var $cells = $('.game');
 
+
+
     if ($('.container').has('.heart').length === 0) {
       $cells.css('background-color', 'red');
       $cells.off('click');
+      $container.append('<button type="button" id="retry">TRY AGAIN</button>');
+      $('#retry').on('click', function(e){
+        storyLoad();
+      });
     }
+
+    var blocks = 0;
+    for (var i = 0; i<$cells.length; i++) {
+      if($cells.eq(i).attr('val') === 'v1') {
+        blocks++;
+      }
+    }
+
+    //win
+    if (found === blocks) {
+      if (gameNumber === 1) {
+        for (var i = 0; i<$cells.length; i++) {
+          if($cells.eq(i).attr('val') === 'v1') {
+            $cells.eq(i).css('background-color', 'gold');
+          }
+        }
+      } else if (gameNumber === 2) {
+          
+      } else if (gameNumber === 3) {
+
+      } else if (gameNumber === 4) {
+
+      } else if (gameNumber === 5) {
+
+      } else {
+        for (var i = 0; i<$cells.length; i++) {
+          if($cells.eq(i).attr('val') === 'v1') {
+            $cells.eq(i).css('background-color', 'cyan');
+          }
+        }
+      }
+
+      $container.append('<button type="button" id="next-button">NEXT</button>');
+      $('#next-button').on('click', function(e) {
+        if (gameNumber < 5) {
+          gameNumber++;
+          lives = 3;
+          found = 0;
+          storyLoad();
+        } else if (gameNumber === 5) {
+          $container.css('background-color', 'green');
+        }
+
+      })
+
+    }
+
+
 
   }
 
