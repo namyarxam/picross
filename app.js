@@ -99,6 +99,9 @@ $(document).ready(function() {
 
 
   function choiceLoad() {
+      gameNumber = 1;
+      found = 0;
+      lives = 3;
       $container.empty();
 
       $container.append('<div class="select-title"></div>');
@@ -340,6 +343,7 @@ $(document).ready(function() {
 
     //win
     if (found === blocks) {
+      $cells.off('click');
       if (gameNumber === 1) {
         for (var i = 0; i<$cells.length; i++) {
           if($cells.eq(i).attr('val') === 'v1') {
@@ -347,13 +351,55 @@ $(document).ready(function() {
           }
         }
       } else if (gameNumber === 2) {
-          
+          for (var i = 0; i<$cells.length; i++) {
+            if($cells.eq(i).attr('val') === 'v1') {
+              $cells.eq(i).css('background-color', 'green');
+            }
+          }
       } else if (gameNumber === 3) {
-
+          for (var i = 0; i<$cells.length; i++) {
+            if($cells.eq(i).attr('val') === 'v1') {
+              $cells.eq(i).css('background-color', 'pink');
+            }
+          }
       } else if (gameNumber === 4) {
-
+          $cells.eq(1).css('background-color', 'pink');
+          $cells.eq(2).css('background-color', 'pink');
+          $cells.eq(3).css('background-color', 'pink');
+          $cells.eq(5).css('background-color', 'pink');
+          $cells.eq(6).css('background-color', 'blue');
+          $cells.eq(7).css('background-color', 'pink');
+          $cells.eq(8).css('background-color', 'blue');
+          $cells.eq(9).css('background-color', 'pink');
+          $cells.eq(10).css('background-color', 'pink');
+          $cells.eq(11).css('background-color', 'black');
+          $cells.eq(12).css('background-color', 'pink');
+          $cells.eq(13).css('background-color', 'black');
+          $cells.eq(14).css('background-color', 'pink');
+          $cells.eq(16).css('background-color', 'pink');
+          $cells.eq(17).css('background-color', 'pink');
+          $cells.eq(18).css('background-color', 'pink');
+          $cells.eq(20).css('background-color', 'hotpink');
+          $cells.eq(21).css('background-color', 'hotpink');
+          $cells.eq(23).css('background-color', 'hotpink');
+          $cells.eq(24).css('background-color', 'hotpink');
       } else if (gameNumber === 5) {
-
+          $cells.eq(3).css('background-color', 'brown');
+          $cells.eq(6).css('background-color', 'brown');
+          $cells.eq(7).css('background-color', 'red');
+          $cells.eq(8).css('background-color', 'tan');
+          $cells.eq(9).css('background-color', 'tan');
+          $cells.eq(10).css('background-color', 'brown');
+          $cells.eq(11).css('background-color', 'brown');
+          $cells.eq(12).css('background-color', 'brown');
+          $cells.eq(13).css('background-color', 'red');
+          $cells.eq(14).css('background-color', 'tan');
+          $cells.eq(15).css('background-color', 'brown');
+          $cells.eq(18).css('background-color', 'brown');
+          $cells.eq(20).css('background-color', 'tan');
+          $cells.eq(21).css('background-color', 'tan');
+          $cells.eq(23).css('background-color', 'tan');
+          $cells.eq(24).css('background-color', 'tan');
       } else {
         for (var i = 0; i<$cells.length; i++) {
           if($cells.eq(i).attr('val') === 'v1') {
