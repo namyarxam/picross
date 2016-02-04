@@ -155,23 +155,28 @@ $(document).ready(function() {
     //sets values to preset boards
     if (gameNumber === 1) {
       for (var i = 0; i < cells.length; i++) {
-        cells.eq(i).attr('val', 'v' + board1[i].toString())
+        cells.eq(i).attr('val', 'v' + board1[i].toString());
       }
     } else if (gameNumber === 2) {
         for (var i = 0; i < cells.length; i++) {
-          cells.eq(i).attr('val', 'v' + board2[i].toString())
+          cells.eq(i).attr('val', 'v' + board2[i].toString());
         }
     } else if (gameNumber === 3) {
         for (var i = 0; i < cells.length; i++) {
-          cells.eq(i).attr('val', 'v' + board3[i].toString())
+          cells.eq(i).attr('val', 'v' + board3[i].toString());
         }
     } else if (gameNumber === 4) {
         for (var i = 0; i < cells.length; i++) {
-          cells.eq(i).attr('val', 'v' + board4[i].toString())
+          cells.eq(i).attr('val', 'v' + board4[i].toString());
         }
     } else if (gameNumber === 5) {
         for (var i = 0; i < cells.length; i++) {
-          cells.eq(i).attr('val', 'v' + board5[i].toString())
+          cells.eq(i).attr('val', 'v' + board5[i].toString());
+        }
+    } else if (gameNumber === 0) {
+        var temp = randomBoard();
+        for (var i = 0; i < cells.length; i++) {
+          cells.eq(i).attr('val', 'v' + temp[i].toString());
         }
     }
 
@@ -330,6 +335,8 @@ $(document).ready(function() {
       $cells.off('click');
       $container.append('<button type="button" id="retry">TRY AGAIN</button>');
       $('#retry').on('click', function(e){
+        found = 0;
+        lives = 0;
         storyLoad();
       });
     }
@@ -384,18 +391,18 @@ $(document).ready(function() {
           $cells.eq(23).css('background-color', 'hotpink');
           $cells.eq(24).css('background-color', 'hotpink');
       } else if (gameNumber === 5) {
-          $cells.eq(3).css('background-color', 'brown');
-          $cells.eq(6).css('background-color', 'brown');
+          $cells.eq(3).css('background-color', '#996633');
+          $cells.eq(6).css('background-color', '#996633');
           $cells.eq(7).css('background-color', 'red');
           $cells.eq(8).css('background-color', 'tan');
           $cells.eq(9).css('background-color', 'tan');
-          $cells.eq(10).css('background-color', 'brown');
-          $cells.eq(11).css('background-color', 'brown');
-          $cells.eq(12).css('background-color', 'brown');
+          $cells.eq(10).css('background-color', '#996633');
+          $cells.eq(11).css('background-color', '#996633');
+          $cells.eq(12).css('background-color', '#996633');
           $cells.eq(13).css('background-color', 'red');
           $cells.eq(14).css('background-color', 'tan');
-          $cells.eq(15).css('background-color', 'brown');
-          $cells.eq(18).css('background-color', 'brown');
+          $cells.eq(15).css('background-color', '#996633');
+          $cells.eq(18).css('background-color', '#996633');
           $cells.eq(20).css('background-color', 'tan');
           $cells.eq(21).css('background-color', 'tan');
           $cells.eq(23).css('background-color', 'tan');
@@ -410,13 +417,26 @@ $(document).ready(function() {
 
       $container.append('<button type="button" id="next-button">NEXT</button>');
       $('#next-button').on('click', function(e) {
-        if (gameNumber < 5) {
+        if (gameNumber === 0) {
+          lives = 3;
+          found = 0;
+          randomLoad();
+        }
+        if (gameNumber != 0 && gameNumber < 5) {
           gameNumber++;
           lives = 3;
           found = 0;
           storyLoad();
         } else if (gameNumber === 5) {
+          $container.empty();
           $container.css('background-color', 'green');
+          $container.append('<button type="button" id="win-button">YOU WIN</button>');
+
+          $('#win-button').on('click', function(e) {
+            $container.css('background-color', 'grey');
+            choiceLoad();
+          });
+
         }
 
       })
@@ -440,10 +460,21 @@ $(document).ready(function() {
   }
 
   function randomLoad() {
-    $container.empty();
+    gameNumber = 0;
+
+    boardLoad(5);
+    assignValues();
+
+    var cells = $('.game');
+
+    for (var i = 0; i < cells.length; i++) {
+      cells.eq(i).on('click', clickResult);
+    }
   }
 
   function buildLoad() {
     $container.empty();
+
+    boardLoad(5);
   }
 });

@@ -416,3 +416,25 @@ body {
   font-size: 25px;
   font-family: impact;
 }
+
+#win-button {
+  border-radius: 50%;
+  position: absolute;
+  left: 28%;
+  bottom: 24%;
+  padding: 100px;
+  font-size: 35px;
+  font-family: impact;
+  border: 5px solid black;
+}
+
+#win-button:hover {
+  box-shadow: 0px 4px 8px black;
+}
+#win-button:active {
+  transform: scale(.9);
+}
+
+#win-button:focus {
+    outline: 0;
+}
