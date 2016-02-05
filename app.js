@@ -364,7 +364,7 @@ $(document).ready(function() {
       } else if (gameNumber === 3) {
           for (var i = 0; i<$cells.length; i++) {
             if($cells.eq(i).attr('val') === 'v1') {
-              $cells.eq(i).css('background-color', 'pink');
+              $cells.eq(i).css('background-color', 'silver');
             }
           }
       } else if (gameNumber === 4) {
@@ -472,7 +472,11 @@ $(document).ready(function() {
 
   function buildLoad() {
     $container.empty();
-
     boardLoad(5);
+
+    $title = $('.gametitle');
+    $title.empty();
+    $title.append('<h1>BUILD MODE</h1>');
+
   }
 });
