@@ -176,6 +176,8 @@ $(document).ready(function() {
         for (var i = 0; i < cells.length; i++) {
           cells.eq(i).attr('val', 'v' + temp[i].toString());
         }
+    } else if (gameNumber === 6) {
+        console.log(cells.eq(i).attr('val'));
     }
 
     //creates rows
@@ -322,6 +324,14 @@ $(document).ready(function() {
     checkWin();
   }
 
+  function retryCurrent() {
+    var $cells = $('.game');
+    $cells.css('background-color', 'black');
+    $cells.off('click');
+    $cells.on('clickResult');
+  }
+
+
   function checkWin() {
     var $hearts = $('.heart');
     var $cells = $('.game');
@@ -336,6 +346,16 @@ $(document).ready(function() {
         found = 0;
         lives = 0;
         storyLoad();
+        if (gameNumber === 6 || gameNumber === 0) {
+          $('#retry').remove();
+          $cells.css('background-color', 'black');
+          $container.append('<div class="heart hp1"><img src="css/heart.png"></div>');
+          $container.append('<div class="heart hp2"><img src="css/heart.png"></div>');
+          $container.append('<div class="heart hp3"><img src="css/heart.png"></div>');
+          $cells.on('click', clickResult);
+        } else {
+          storyLoad();
+        }
       });
     }
 
@@ -420,6 +440,12 @@ $(document).ready(function() {
           found = 0;
           randomLoad();
         }
+
+        if (gameNumber === 6) {
+          lives = 3;
+          found = 0;
+          buildLoad();
+        }
         if (gameNumber != 0 && gameNumber < 5) {
           gameNumber++;
           lives = 3;
@@ -449,6 +475,10 @@ $(document).ready(function() {
     boardLoad(5);
     assignValues();
 
+    $container.append('<div class="return-container"></div>');
+    $('.return-container').append('<button type="button" id="return-button">HOME</button>');
+    $('#return-button').on('click', choiceLoad);
+
     var cells = $('.game');
 
     for (var i = 0; i < cells.length; i++) {
@@ -465,6 +495,16 @@ $(document).ready(function() {
 
     var cells = $('.game');
 
+    $title = $('.gametitle');
+    $title.empty();
+    $title.append('<h1>RANDOM</h1>');
+
+    var cells = $('.game');
+
+    $container.append('<div class="return-container"></div>');
+    $('.return-container').append('<button type="button" id="return-button">HOME</button>');
+    $('#return-button').on('click', choiceLoad);
+
     for (var i = 0; i < cells.length; i++) {
       cells.eq(i).on('click', clickResult);
     }
@@ -474,5 +514,54 @@ $(document).ready(function() {
     $container.empty();
 
     boardLoad(5);
+    boardLoad(5);
+
+    $title = $('.gametitle');
+    $title.empty();
+    $title.append('<h1>BUILD MODE</h1>');
+
+    $container.append('<div class="return-container"></div>');
+    $('.return-container').append('<button type="button" id="return-button">HOME</button>');
+    $('#return-button').on('click', choiceLoad);
+
+    var cells = $('.game');
+
+    function temp1() {
+      $(this).css('background-color', 'lightgrey');
+      $(this).attr('val', 'v1');
+      $(this).off('click');
+      $(this).on('click', temp2);
+    }
+
+    function temp2() {
+        $(this).css('background-color', 'black');
+        $(this).attr('val', 'v0');
+        $(this).off('click');
+        $(this).on('click', temp1);
+    }
+
+    for (var i = 0; i < cells.length; i++) {
+      cells.eq(i).on('click', temp1);
+    }
+
+    $container.append('<button type="button" id="build-button">BUILD</button>');
+    $('#build-button').on('click', function(event){
+      $('#build-button').remove();
+      gameNumber = 6;
+      for (var i = 0; i < cells.length; i++) {
+        //set all cells without val=v1 to val=v0
+        if (!(cells.eq(i).attr('val') === 'v1')) {
+          cells.eq(i).attr('val', 'v0');
+        }
+      }
+      cells.css('background-color', 'black');
+      assignValues();
+      cells.off('click');
+      cells.on('click', clickResult);
+
+    })
+
+
+
   }
 });
