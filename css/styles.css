@@ -461,3 +461,24 @@ body {
 #win-button:focus {
     outline: 0;
 }
+
+.info {
+  position: absolute;
+  left: 2%;
+  bottom: 92%;
+  cursor: pointer;
+  border: 2px solid black;
+  font-family: 'silkscreenbold';
+  font-size: 20px;
+}
+
+.info:hover {
+  box-shadow: 0px 2px 4px black;
+}
+.info:active {
+  transform: scale(.9);
+}
+
+.info:focus {
+    outline: 0;
+}

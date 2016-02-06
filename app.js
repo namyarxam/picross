@@ -107,6 +107,12 @@ $(document).ready(function() {
       $container.append('<div class="choices"><span id="story">STORY</span><span id="random">RANDOM</span><span id="build">BUILD</span></div>');
       $container.append('<div id="circles"></div>')
 
+      $container.append('<button class="info">?</button>');
+      $('.info').on('click', function(e) {
+        var myWindow = window.open("", "How to Play", "width=400, height=150");
+        myWindow.document.write("<p>Picross puzzles are picture logic puzzles in which cells in a grid must be colored according to numbers at the side of the grid to reveal a hidden picture. The numbers are in the form of a clue that measures how many unbroken lines of filled-in squares there are in any given row or column.!</p>");
+      });
+
       $('#circles').append('<div class="circle bk"><img class="book" src="css/book.png"></div>');
       $('#circles').append('<div class="circle qm">?</div>');
       $('#circles').append('<div class="circle hm"><img class="hammer" src="css/hammer.png"></div>');
