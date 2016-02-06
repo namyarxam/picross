@@ -409,6 +409,28 @@ body {
     outline: 0;
 }
 
+#build-button {
+  position: absolute;
+  left: 86%;
+  bottom: 4%;
+  cursor: pointer;
+  border: 2px solid black;
+  font-family: 'silkscreenbold';
+  font-size: 20px;
+}
+
+#build-button:hover {
+  box-shadow: 0px 2px 4px black;
+}
+
+#build-button:active {
+  transform: scale(.9);
+}
+
+#build-button:focus {
+  outline: 0;
+}
+
 #retry {
   position: absolute;
   left: 73.5%;
