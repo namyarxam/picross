@@ -176,9 +176,7 @@ $(document).ready(function() {
         for (var i = 0; i < cells.length; i++) {
           cells.eq(i).attr('val', 'v' + temp[i].toString());
         }
-    } else if (gameNumber === 6) {
-        console.log(cells.eq(i).attr('val'));
-    }
+    } 
 
     //creates rows
     var row1 =  [];
