@@ -176,7 +176,7 @@ $(document).ready(function() {
         for (var i = 0; i < cells.length; i++) {
           cells.eq(i).attr('val', 'v' + temp[i].toString());
         }
-    } 
+    }
 
     //creates rows
     var row1 =  [];
@@ -300,10 +300,6 @@ $(document).ready(function() {
     $container.append('<div class="heart hp1"><img src="css/heart.png"></div>');
     $container.append('<div class="heart hp2"><img src="css/heart.png"></div>');
     $container.append('<div class="heart hp3"><img src="css/heart.png"></div>');
-    $container.append('<div class="return-container"></div>');
-    $('.return-container').append('<button type="button" id="return-button">HOME</button>');
-
-    $('#return-button').on('click', choiceLoad);
   }
 
   function clickResult() {
@@ -343,7 +339,6 @@ $(document).ready(function() {
       $('#retry').on('click', function(e){
         found = 0;
         lives = 0;
-        storyLoad();
         if (gameNumber === 6 || gameNumber === 0) {
           $('#retry').remove();
           $cells.css('background-color', 'black');
@@ -354,6 +349,7 @@ $(document).ready(function() {
         } else {
           storyLoad();
         }
+
       });
     }
 
@@ -431,6 +427,7 @@ $(document).ready(function() {
         }
       }
 
+
       $container.append('<button type="button" id="next-button">NEXT</button>');
       $('#next-button').on('click', function(e) {
         if (gameNumber === 0) {
@@ -438,7 +435,6 @@ $(document).ready(function() {
           found = 0;
           randomLoad();
         }
-
         if (gameNumber === 6) {
           lives = 3;
           found = 0;
@@ -491,8 +487,6 @@ $(document).ready(function() {
     boardLoad(5);
     assignValues();
 
-    var cells = $('.game');
-
     $title = $('.gametitle');
     $title.empty();
     $title.append('<h1>RANDOM</h1>');
@@ -510,8 +504,6 @@ $(document).ready(function() {
 
   function buildLoad() {
     $container.empty();
-
-    boardLoad(5);
     boardLoad(5);
 
     $title = $('.gametitle');
@@ -558,7 +550,6 @@ $(document).ready(function() {
       cells.on('click', clickResult);
 
     })
-
 
 
   }
